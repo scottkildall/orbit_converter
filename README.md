@@ -11,5 +11,7 @@ by Scott Kildall
 
 
 
+Taget Body Name format =
 
-
+17473 (1991 FM3)   [unnamed]
+26858 Misterrogers (1993 FR)		[named]

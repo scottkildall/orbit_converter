@@ -8,4 +8,8 @@
 # compiled Python
 *.pyc
 
+# input and output directory
+input/
+output/
+
 
