@@ -49,6 +49,21 @@ def processEphemerisFile(filename):
 	print startDate
 	print stopDate
 
+
+	startDT = datetime.datetime.strptime(startDate, "%Y-%b-%d" )
+	stopDT = datetime.datetime.strptime(stopDate, "%Y-%b-%d" )
+	
+	dt = startDT
+	
+	# this will parse out all the dates, but we atually need to extract the x,y,z and put them into a CSV
+	while True:
+		print dt.strftime("%b %d, %Y")
+		dt =  dt + datetime.timedelta(days=1)
+		if dt == stopDT:
+			break
+
+
+
 # Line in file looks something like this:
 # Target body name: 26858 Misterrogers (1993 FR)
 def extractTargetBodyName(fileText, index, searchStr):
@@ -82,7 +97,7 @@ def extractStartOrStopDate(fileText, index, searchStr):
 
 
 	# now dateStr = "2100-Jan-01" (or something like this), swap around to make "Jan 01 2001"
-	dateStr = dateStr[5:8] + " " + dateStr[9:11] + " " + dateStr[0:4] 
+	#dateStr = dateStr[5:8] + " " + dateStr[9:11] + " " + dateStr[0:4] 
 	return dateStr
 
 # makes an array from lines in a file, stripping off the newlines
