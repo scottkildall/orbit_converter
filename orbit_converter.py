@@ -26,24 +26,25 @@ def processEphemerisFile(filename):
 	fileText = fileText[0]
 	# this could be cleaned up so that it isn't a
 
-
-	# look for Taget body nme
+	# look for Taget body name
 	searchStr = "Target body name: "
 	index = fileText.find(searchStr)
 	if index > -1:
 		targetBodyName = extractTargetBodyName(fileText, index, searchStr)
 	
-	
-	
 	print targetBodyName
 
+# Line in file looks something like this:
+# Target body name: 26858 Misterrogers (1993 FR)
 def extractTargetBodyName(fileText, index, searchStr):
-	## Add while here until we get a left paren, then drop the last space for the target body name
-		# process target body name here
-		#print fileText[index + len(searchStr)]	
+	targetBodyName = "001 Not Found"
 
+	for i in range(index, len(fileText)):
+		if fileText[i] == "(":
+			targetBodyName = fileText[index:i-1]
+			break
 
-	return "001 Unimplemented"
+	return targetBodyName
 
 # makes an array from lines in a file, stripping off the newlines
 def getFileLines(filename):
