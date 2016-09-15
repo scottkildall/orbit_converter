@@ -11,5 +11,6 @@
 # input and output directory
 input/
 output/
-
+raw/
+processed/
 
